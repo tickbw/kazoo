@@ -123,7 +123,6 @@
 %%--------------------------------------------------------------------
 -spec presence/2 :: (ne_binary(), ne_binary() | whapps_call:call()) -> 'ok'.
 -spec presence/3 :: (ne_binary(), ne_binary() | whapps_call:call(), api_binary() | whapps_call:call()) -> 'ok'.
-
 presence(State, PresenceId) when is_binary(PresenceId) ->
     presence(State, PresenceId, undefined);
 presence(State, Call) ->
@@ -672,10 +671,10 @@ b_prompt(Prompt, Lang, Call) ->
 %% @end
 %%--------------------------------------------------------------------
 -spec play/2 :: (ne_binary(), whapps_call:call()) -> ne_binary().
--spec play/3 :: (ne_binary(), [ne_binary(),...], whapps_call:call()) -> ne_binary().
+-spec play/3 :: (ne_binary(), [ne_binary(),...] | 'undefined', whapps_call:call()) -> ne_binary().
 
 -spec b_play/2 :: (ne_binary(), whapps_call:call()) -> whapps_api_std_return().
--spec b_play/3 :: (ne_binary(), [ne_binary(),...], whapps_call:call()) -> whapps_api_std_return().
+-spec b_play/3 :: (ne_binary(), [ne_binary(),...] | 'undefined', whapps_call:call()) -> whapps_api_std_return().
 
 play(Media, Call) ->
     play(Media, ?ANY_DIGIT, Call).
